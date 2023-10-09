@@ -1,0 +1,30 @@
+#include <iostream>
+#include "TXLib.h"
+
+class vragi
+     {
+        public:
+        int x,y;
+      int width, height;
+      HDC pic;
+
+
+   vragi (int x1,int y1,int w,int h,  string file ) {
+
+       x=x1;
+       y=y1;
+       width=w;
+       height=h;
+       pic = txLoadImage(file.c_str());
+
+
+
+ }
+ int Draw()
+ {txBitBlt(txDC(), x, y, width, height, pic);}
+  int Move()
+ {x=x+1;}
+
+
+
+   };
