@@ -2,6 +2,7 @@
 #include "TXLib.h"
 
 class vragi
+
      {
         public:
         int x,y;
@@ -20,9 +21,17 @@ class vragi
 
 
  }
+
  int Draw()
- {txBitBlt(txDC(), x, y, width, height, pic);}
-  int Move(int x1, int y1)
+ {
+ txTransparentBlt(txDC(), x, y, width, height, pic,0,0,TX_WHITE);
+
+
+
+ }
+
+  int Move(int x1, int y1);
+
 
  {if (x1>x) x=x+1;
  if (x1<x) x=x-1;
