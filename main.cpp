@@ -1,11 +1,14 @@
 #include <TXLib.h>
+#include "bashni.h"
+#include "ilya (1).h"
 using namespace std;
 int Help()
 {  txBegin();
-  txSetFillColor(TX_RED);
+  txSetFillColor(TX_WHITE);
   txClear();
   txSetColor(TX_BLACK);
- txTextOut(50,100, "Всех приветствую в моей игре,эта игра отлично подходит для того,чтоб отлично провести время с друзьями!");
+ txTextOut(40,50,"Tower Defense-это популярная разновидность стратегий в реальном времени. Задача игрока сводится к защите локации от волн атакующих врагов. Для этого на пути вражеских орд он возводит те самые башни, апгрейдит их, ремонтирует и так далее.");
+ HDC  pic = txLoadImage("фон.bmp");
 
 
  txEnd();
@@ -14,6 +17,44 @@ int Help()
   {;}
 
 }
+
+
+int Play()
+{
+txClear();
+
+int g;
+g=0;
+Bashni bash1(100,200,"маг.bmp");
+vragi vrag1(300,300,91,74,"01.bmp");
+while(1)
+{
+  txBegin();
+txSetColor(TX_WHITE);
+ //txDrawText(10, 10, 500, 500,"Надо ИГРАТЬ");
+HDC  pic = txLoadImage("фон.bmp");
+txTransparentBlt(txDC(),0,0,  1366, 760,pic,0,0, TX_WHITE);
+
+
+// bashi
+//if (
+bash1.Draw();
+vrag1.Draw();
+vrag1.Move(100,200);
+txEnd();
+
+
+}
+
+}
+
+
+
+
+
+
+
+
 class buttons
  {
     public:
@@ -38,6 +79,7 @@ string text="кнопка";
 
  // txTransparentBlt(txDC(),x,y,85, 83,pic,0,0, cvet);
  txRectangle (x, y, x+w, y+w);
+ txDrawText(x, y, x+w, y+w,text.c_str());
    }
 
 
@@ -53,35 +95,36 @@ string text="кнопка";
 
 int main()
 
- {txCreateWindow(900, 700);
+ {txCreateWindow(1360, 760);
  txSetFillColour(TX_WHITE);
  txClear();
  txSetFillColour(TX_RED);
- buttons btn1(370,245,100,100,TX_LIGHTGREEN,TX_BLACK,"Играть");
+ buttons btn1(650,245,100,100,TX_LIGHTGREEN,TX_RED,"Играть");
 
 
-    buttons btn2(370,345,100,100,TX_LIGHTGREEN,TX_BLACK,"Меню");
+    buttons btn2(650,345,100,100,TX_LIGHTGREEN,TX_RED,"Меню");
 
 
-    buttons btn3(370,445,100,100,TX_LIGHTGREEN,TX_BLACK,"Выход");
+    buttons btn3(650,445,100,100,TX_LIGHTGREEN,TX_RED,"Выход");
 
   int play=1;
    while(play)
+
   {
   txBegin();
-  txSetFillColor(TX_RED);
+  txSetFillColor(TX_BLACK);
   txClear();
   txSetColor(TX_WHITE);
 
      btn1.Draw();
-      if (btn1.Click(txMouseX(), txMouseY())) play=0;
+      if (btn1.Click(txMouseX(), txMouseY())&& txMouseButtons()==1) play=0;
      btn2.Draw();
-     if (btn2.Click(txMouseX(), txMouseY()))Help() ;
+     if (btn2.Click(txMouseX(), txMouseY())&& txMouseButtons()==1)Help() ;
      btn3.Draw();
-    if (btn3.Click(txMouseX(), txMouseY())) {return 0; }
+    if (btn3.Click(txMouseX(), txMouseY())&& txMouseButtons()==1) {return 0; }
 
      txEnd();
      }
-
+Play();
   }
 
