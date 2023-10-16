@@ -30,7 +30,7 @@ class vragi
 
  }
 
-  int Move(int x1, int y1);
+  int Move(int x1, int y1)
 
 
  {if (x1>x) x=x+1;
