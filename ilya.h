@@ -5,9 +5,11 @@ class vragi
 
      {
         public:
+        int speed=5;
         int x,y;
       int width, height;
       HDC pic;
+
 
 
    vragi (int x1,int y1,int w,int h,  string file ) {
@@ -33,10 +35,18 @@ class vragi
   int Move(int x1, int y1)
 
 
- {if (x1>x) x=x+1;
- if (x1<x) x=x-1;
- if (y1>y) y=y+1;
- if (y1<y) y=y-1;}
+ {if (x1>x) x=x+speed;
+ if (x1<x) x=x-speed;
+ if (y1>y) y=y+speed;
+ if (y1<y) y=y-speed;
+
+ if (y1>y-speed&&y1<y+speed&&x1>x-speed&&x1<x+speed) return 1;
+ return 0;
+
+ }
+
+
+
 
 
 
