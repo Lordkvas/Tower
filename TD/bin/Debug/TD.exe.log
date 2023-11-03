@@ -1,0 +1,66 @@
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\user\Documents\Данис Ибраев С++\TD\bin\Debug\TD.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 13657, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005062FC (32-bit), Flags: CMdRe0, Thread: 0x1508 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004226F0 in C:\Users\user\Documents\Данис Ибраев С++\TD\bin\Debug\TD.exe: txTransparentBlt() at c:/codeblocks/codeblocks/mingw/include/txlib.h (13657)
+
+# 1 0x0042C14A in C:\Users\user\Documents\Данис Ибраев С++\TD\bin\Debug\TD.exe: Play() at C:/Users/user/Documents/Данис Ибраев С++/TD/main.cpp (85):
+
+     83:  //txDrawText(10, 10, 500, 500,"Надо ИГРАТЬ");
+     84: HDC  pic = txLoadImage("фон.bmp");
+=>   85: txTransparentBlt(txDC(),0,0,  1366, 760,pic,0,0, TX_WHITE);
+     86: 
+     87: 
+
+# 2 0x0042C8A8 in C:\Users\user\Documents\Данис Ибраев С++\TD\bin\Debug\TD.exe: main() at C:/Users/user/Documents/Данис Ибраев С++/TD/main.cpp (187):
+
+    185:      txEnd();
+    186:      }
+=>  187: Play();
+    188:   }
+    189: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13657):
+
+  13655: 
+  13656: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13657: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13658: 
+  13659:     // Это автоматическое определение размеров картинки (точнее, HDC источника - source) с помощью txGetExtent().
+
+# 1 in int Play() at C:\Users\user\Documents\Данис Ибраев С++\TD\main.cpp (85):
+
+     83:  //txDrawText(10, 10, 500, 500,"Надо ИГРАТЬ");
+     84: HDC  pic = txLoadImage("фон.bmp");
+=>   85: txTransparentBlt(txDC(),0,0,  1366, 760,pic,0,0, TX_WHITE);
+     86: 
+     87: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 23 2023 17:25:26, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 23 2023 17:25:32
+
+Run file:	C:\Users\user\Documents\Данис Ибраев С++\TD\bin\Debug\TD.exe
+Directory:	C:\Users\user\Documents\Данис Ибраев С++\TD
+
+--------------------------------------------------
