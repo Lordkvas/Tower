@@ -23,7 +23,9 @@ int main()
 
     vr1.Draw();
     vr1.Move() ;
-
+    if (txMouseButtons()==1)
+        vr1.kill(txMouseX(),txMouseY());
+         //vr1.kill(vr1.x,vr1.y);
    txSleep(100);
    txSetFillColor(TX_BLACK);
    txClear();
