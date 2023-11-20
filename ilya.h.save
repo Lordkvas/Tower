@@ -1,4 +1,4 @@
-loll#include <iostream>
+w#include <iostream>
 #include "TXLib.h"
 
 class vragi
@@ -6,7 +6,7 @@ class vragi
      {
         public:
             int koord[21][2];
-  txRectangle(200,300,250,300-h2);
+ /* txRectangle(200,300,250,300-h2); */
         int speed=5;
         int x,y;
       int width, height;
@@ -41,7 +41,7 @@ class vragi
 
  int Draw()
  {
- txTransparentBlt(txDC(), x, y, width, height, pic,0,0,TX_WHITE);
+ if (hp>0) txTransparentBlt(txDC(), x, y, width, height, pic,0,0,TX_WHITE);
 
 
 
@@ -50,18 +50,23 @@ class vragi
   int Move()
 
 
- {
- if (koord[point][0]>x) x=x+speed;
- if (koord[point][0]<x) x=x-speed;
- if (koord[point][1]>y) y=y+speed;
- if (koord[point][1]<y) y=y-speed;
+ { if (hp>0)
+        {
+     if (koord[point][0]>x) x=x+speed;
+     if (koord[point][0]<x) x=x-speed;
+     if (koord[point][1]>y) y=y+speed;
+     if (koord[point][1]<y) y=y-speed;
 
- if (koord[point][1]>y-speed&&koord[point][1]<y+speed&&koord[point][0]>x-speed&&koord[point][0]<x+speed) point++;
+        if (koord[point][1]>y-speed&&koord[point][1]<y+speed&&koord[point][0]>x-speed&&koord[point][0]<x+speed) point++;
+        }
  return 0;
 
  }
 
   int kill(int x1, int y1)
-  {}
+  {
+  if (x>x1-15 &&x< x1+15&&y>y1-15 &&y< y1+15)
+     hp--;
+  }
 
    };
