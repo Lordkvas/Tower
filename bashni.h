@@ -53,7 +53,12 @@ if (hp==9) txTextOut(100, 50,  "9" );
 if (hp==10) txTextOut(100, 50,  "10" );
 };
 
-
+int smert (int y)
+{
+if (y>750) hp=hp-1;
+if (hp==0) return 0;
+return 1;
+}
 
 
 
@@ -76,7 +81,7 @@ public:
 
 
     int x, y, w=27, h=26;
-    Snaryad(int x1,int y1, int skor, string file)
+    Snaryad(int x1,int y1, string file)
     {
     x=x1;
     y=y1;
