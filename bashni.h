@@ -17,6 +17,16 @@ public:
 
     };
 
+Bashni()
+
+    {
+    x=-100;
+    y=-100;
+    pic=txLoadImage("маг.bmp");
+
+
+    };
+
 
     int Draw ()
     {
@@ -85,6 +95,14 @@ public:
     {
     x=x1;
     y=y1;
+    pic=txLoadImage(file.c_str());
+
+    };
+
+   Snaryad()
+    {
+    x=-100;
+    y=-100;
     pic=txLoadImage(file.c_str());
 
     };
